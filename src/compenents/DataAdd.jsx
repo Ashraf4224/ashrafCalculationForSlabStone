@@ -31,8 +31,7 @@ function DataAdd() {
   const handleSumbit = (e) => {
     e.preventDefault();
     if (!isNaN(parseFloat(amountCal))) {
-      const calculatedTotal =
-        parseFloat(totalArea / 100) * parseFloat(amountCal);
+      const calculatedTotal = parseFloat(totalArea) * parseFloat(amountCal);
       alert("Total Amount =" + parseFloat(calculatedTotal));
       setList([]);
       totalRef.current.reset();
@@ -129,12 +128,12 @@ function DataAdd() {
           <input
             type="number"
             readOnly
-            value={totalArea / 100}
+            value={totalArea}
             required
             name="area"
             className="outline-none pl-2 py-1 rounded-lg"
           />
-          <label className="text-base"> Amount (100 Sq-ft) </label>
+          <label className="text-base"> Amount (1 Sqft) </label>
           <input
             type="number"
             onChange={(e) => setAmountCal(e.target.value)}
