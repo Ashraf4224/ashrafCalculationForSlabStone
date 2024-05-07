@@ -28,17 +28,20 @@ function DataAdd() {
   };
   const [amountCal, setAmountCal] = useState({});
   const changeAmount = (e) => {
-    setAmountCal({ ...amount, [e.target.name]: e.target.value.toFixed(2) });
+    setAmountCal({ ...amountCal, [e.target.name]: e.target.value });
   };
   const totalRef = useRef();
   const handleSumbit = (e) => {
     e.preventDefault();
-    if (!isNaN(parseFloat(amountCal))) {
+    if (!isNaN(parseFloat(amountCal.amount))) {
       const calculatedTotal =
         parseFloat(totalArea) * parseFloat(amountCal.amount);
-      alert("Total Amount =" + parseFloat(calculatedTotal));
+      alert("Total Amount = " + calculatedTotal.toFixed(2));
       setList([]);
+      setAmountCal({});
       totalRef.current.reset();
+    } else {
+      alert("Please enter a valid amount.");
     }
   };
   return (
@@ -140,6 +143,7 @@ function DataAdd() {
           <label className="text-base"> Amount (1 Sqft) </label>
           <input
             type="number"
+            step="0.01"
             onChange={changeAmount}
             required
             name="amount"
