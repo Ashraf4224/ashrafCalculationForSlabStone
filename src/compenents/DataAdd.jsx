@@ -28,7 +28,7 @@ function DataAdd() {
   };
   const [amountCal, setAmountCal] = useState({});
   const changeAmount = (e) => {
-    setAmountCal({ ...amount, [e.target.name]: e.target.value });
+    setAmountCal({ ...amount, [e.target.name]: e.target.value.toFixed(2) });
   };
   const totalRef = useRef();
   const handleSumbit = (e) => {
