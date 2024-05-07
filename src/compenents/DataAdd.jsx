@@ -26,12 +26,16 @@ function DataAdd() {
     oldList.splice(index, 1);
     setList(oldList);
   };
-  const [amountCal, setAmountCal] = useState();
+  const [amountCal, setAmountCal] = useState({});
+  const changeAmount = (e) => {
+    setAmountCal({ ...amount, [e.target.name]: e.target.value });
+  };
   const totalRef = useRef();
   const handleSumbit = (e) => {
     e.preventDefault();
     if (!isNaN(parseFloat(amountCal))) {
-      const calculatedTotal = parseFloat(totalArea) * parseFloat(amountCal);
+      const calculatedTotal =
+        parseFloat(totalArea) * parseFloat(amountCal.amount);
       alert("Total Amount =" + parseFloat(calculatedTotal));
       setList([]);
       totalRef.current.reset();
@@ -136,7 +140,7 @@ function DataAdd() {
           <label className="text-base"> Amount (1 Sqft) </label>
           <input
             type="number"
-            onChange={(e) => setAmountCal(e.target.value)}
+            onChange={changeAmount}
             required
             name="amount"
             className="outline-none pl-2 py-1 rounded-lg"
