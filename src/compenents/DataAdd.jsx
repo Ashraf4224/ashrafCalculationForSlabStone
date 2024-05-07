@@ -114,7 +114,7 @@ function DataAdd() {
       </div>
       <div>
         <p className="mt-4 text-red-600 font-extrabold text-xl">
-          Total Arae : {totalArea}{" "}
+          Total Area : {totalArea}{" "}
           <span className="text-black font-semibold text-base">Sq-Feet</span>
         </p>
       </div>
