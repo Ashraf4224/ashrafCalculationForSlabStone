@@ -33,7 +33,7 @@ function DataAdd() {
     if (!isNaN(parseFloat(amountCal))) {
       const calculatedTotal =
         parseFloat(totalArea / 100) * parseFloat(amountCal);
-      alert("Total Amount =" + parseInt(calculatedTotal));
+      alert("Total Amount =" + parseFloat(calculatedTotal));
       setList([]);
       totalRef.current.reset();
     }
